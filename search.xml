@@ -4,25 +4,25 @@
   
     
     <entry>
-      <title>typora-vue-theme主题介绍</title>
-      <link href="/2023/03/01/example/"/>
-      <url>/2023/03/01/example/</url>
+      <title>Hexo 相关</title>
+      <link href="/2023/03/01/hello-world/"/>
+      <url>/2023/03/01/hello-world/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
       
       
       <categories>
           
-          <category> Markdown </category>
+          <category> Hexo </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Typora </tag>
+            <tag> 前端 </tag>
             
-            <tag> Markdown </tag>
+            <tag> Hexo </tag>
             
         </tags>
       
@@ -31,13 +31,54 @@
     
     
     <entry>
-      <title>Hello World</title>
-      <link href="/2023/02/23/hello-world/"/>
-      <url>/2023/02/23/hello-world/</url>
+      <title>Hexo-theme主题介绍</title>
+      <link href="/2023/03/01/example/"/>
+      <url>/2023/03/01/example/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="hot-hexo-theme"><a href="#hot-hexo-theme" class="headerlink" title="hot hexo-theme"></a>hot hexo-theme</h2><ul><li><a href="https://github.com/iissnan/hexo-theme-next">https://github.com/iissnan/hexo-theme-next</a></li><li><a href="https://github.com/litten/hexo-theme-yilia">https://github.com/litten/hexo-theme-yilia</a></li><li><a href="https://github.com/theme-next/hexo-theme-next">https://github.com/theme-next/hexo-theme-next</a></li><li><a href="https://github.com/ppoffice/hexo-theme-icarus">https://github.com/ppoffice/hexo-theme-icarus</a></li><li><a href="https://github.com/fluid-dev/hexo-theme-fluid">https://github.com/fluid-dev/hexo-theme-fluid</a></li><li><a href="https://github.com/jerryc127/hexo-theme-butterfly">https://github.com/jerryc127/hexo-theme-butterfly</a></li><li><a href="https://github.com/blinkfox/hexo-theme-matery">https://github.com/blinkfox/hexo-theme-matery</a></li></ul>]]></content>
       
       
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Vue-router相关</title>
+      <link href="/2023/03/01/vue-router/"/>
+      <url>/2023/03/01/vue-router/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Vue-router根据设备型号，显示对应路由"><a href="#Vue-router根据设备型号，显示对应路由" class="headerlink" title="Vue router根据设备型号，显示对应路由"></a>Vue router根据设备型号，显示对应路由</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">import</span> Vue from <span class="token string">'vue'</span><span class="token function">import</span> Router from <span class="token string">'vue-router'</span>Vue.use<span class="token punctuation">(</span>Router<span class="token punctuation">)</span>var routes <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>//pc端路由const WebRoutes <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>//移动端路由const mobileRoutes <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>//核心判断<span class="token keyword">if</span> <span class="token variable"><span class="token punctuation">((</span>navigator.userAgent.match<span class="token punctuation">(</span><span class="token operator">/</span><span class="token punctuation">(</span>phone<span class="token operator">|</span>pad<span class="token operator">|</span>pod<span class="token operator">|</span>iPhone<span class="token operator">|</span>iPod<span class="token operator">|</span>ios<span class="token operator">|</span>iPad<span class="token operator">|</span>Android<span class="token operator">|</span>Mobile<span class="token operator">|</span>BlackBerry<span class="token operator">|</span>IEMobile<span class="token operator">|</span>MQQBrowser<span class="token operator">|</span>JUC<span class="token operator">|</span>Fennec<span class="token operator">|</span>wOSBrowser<span class="token operator">|</span>BrowserNG<span class="token operator">|</span>WebOS<span class="token operator">|</span>Symbian<span class="token operator">|</span>Windows Phone<span class="token punctuation">)</span><span class="token operator">/</span>i<span class="token punctuation">))</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  routes <span class="token operator">=</span> mobileRoutes<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>  routes <span class="token operator">=</span> WebRoutes<span class="token punctuation">&#125;</span>const router <span class="token operator">=</span> new Router<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>  mode: <span class="token string">'history'</span>,  routes<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Vue-router </tag>
+            
+            <tag> Vue </tag>
+            
+        </tags>
       
     </entry>
     
