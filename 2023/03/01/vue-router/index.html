@@ -44,7 +44,9 @@
 
 
 
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
     <link rel="stylesheet" href="/css/post.css">
+
 
 
 
@@ -351,10 +353,12 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -429,7 +433,7 @@
 <li>可定制的滚动行为</li>
 <li>URL 的正确编码</li>
 </ul>
-<h2 id="Vue-router根据设备型号，显示对应路由"><a href="#Vue-router根据设备型号，显示对应路由" class="headerlink" title="Vue router根据设备型号，显示对应路由"></a>Vue router根据设备型号，显示对应路由</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">import</span> Vue from <span class="token string">'vue'</span>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><h3 id="Vue-router根据设备型号，显示对应路由"><a href="#Vue-router根据设备型号，显示对应路由" class="headerlink" title="Vue router根据设备型号，显示对应路由"></a>Vue router根据设备型号，显示对应路由</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">import</span> Vue from <span class="token string">'vue'</span>
 <span class="token function">import</span> Router from <span class="token string">'vue-router'</span>
 Vue.use<span class="token punctuation">(</span>Router<span class="token punctuation">)</span>
 
@@ -454,7 +458,7 @@ const router <span class="token operator">=</span> new Router<span class="token 
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="Vue路由守卫实现无登录只跳转到登录页面"><a href="#Vue路由守卫实现无登录只跳转到登录页面" class="headerlink" title="Vue路由守卫实现无登录只跳转到登录页面"></a>Vue路由守卫实现无登录只跳转到登录页面</h2><p>在实际的项目中，有一些页面是需要登录后才可以浏览，有一些功能需要登录权限。如果没限制用户未登录也可以通过url直接浏览，这需要我们路由上做一些限制。</p>
+<h3 id="Vue路由守卫实现无登录只跳转到登录页面"><a href="#Vue路由守卫实现无登录只跳转到登录页面" class="headerlink" title="Vue路由守卫实现无登录只跳转到登录页面"></a>Vue路由守卫实现无登录只跳转到登录页面</h3><p>在实际的项目中，有一些页面是需要登录后才可以浏览，有一些功能需要登录权限。如果没限制用户未登录也可以通过url直接浏览，这需要我们路由上做一些限制。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">router.beforeEach<span class="token punctuation">((</span>to, from, next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
   <span class="token builtin class-name">let</span> token <span class="token operator">=</span> localStorage.getItem<span class="token punctuation">(</span><span class="token string">'token'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>token <span class="token operator">||</span> to.path <span class="token operator">==</span><span class="token operator">=</span> <span class="token string">'/login'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -478,7 +482,7 @@ const router <span class="token operator">=</span> new Router<span class="token 
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">funny</a>
+                    <a href="/about" rel="external nofollow noreferrer">Funny Chen</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -501,7 +505,7 @@ const router <span class="token operator">=</span> new Router<span class="token 
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">funny</a>
+                    <a href="/about" target="_blank">Funny Chen</a>
                     !
                 </span>
             </div>
@@ -581,19 +585,19 @@ const router <span class="token operator">=</span> new Router<span class="token 
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/03/01/axios/">
+                <a href="/2023/03/01/example/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Axios 拦截器">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Hexo-theme主题介绍">
                         
-                        <span class="card-title">Axios 拦截器</span>
+                        <span class="card-title">Hexo-theme主题介绍</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            这是你自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要
                         
                     </div>
                     <div class="publish-info">
@@ -604,8 +608,8 @@ const router <span class="token operator">=</span> new Router<span class="token 
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Axios/" class="post-category">
-                                    Axios
+                            <a href="/categories/Hexo/" class="post-category">
+                                    Hexo
                                 </a>
                             
                             
@@ -615,12 +619,12 @@ const router <span class="token operator">=</span> new Router<span class="token 
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/axios/">
-                        <span class="chip bg-color">axios</span>
+                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                        <span class="chip bg-color">前端</span>
                     </a>
                     
-                    <a href="/tags/Vue/">
-                        <span class="chip bg-color">Vue</span>
+                    <a href="/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
                     </a>
                     
                 </div>
@@ -711,6 +715,87 @@ const router <span class="token operator">=</span> new Router<span class="token 
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 

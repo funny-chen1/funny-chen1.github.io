@@ -4,8 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Axios 拦截器, Funny">
-    <meta name="description" content="Axios 是一个基于 promise 网络请求库，作用于node.js 和浏览器中。它是 isomorphic 的(即同一套代码可以运行在浏览器和node.js中)。在服务端它使用原生 node.js http 模块, 而在客户端 (浏览">
+    <meta name="keywords" content="Promise、async/await相关, Funny">
+    <meta name="description" content="开始关于async/await、promise和setTimeout的执行顺序async function async1() &amp;#123;
+	console.log(&#39;async1 start&#39;);
+	await async2();
+	co">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Axios 拦截器 | Funny</title>
+    <title>Promise、async/await相关 | Funny</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -332,12 +335,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Axios 拦截器</h1>
+                    <h1 class="description center-align post-title">Promise、async/await相关</h1>
                 </div>
             </div>
         </div>
@@ -361,12 +364,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/axios/">
-                                <span class="chip bg-color">axios</span>
+                            <a href="/tags/async-await/">
+                                <span class="chip bg-color">async/await</span>
                             </a>
                         
-                            <a href="/tags/Vue/">
-                                <span class="chip bg-color">Vue</span>
+                            <a href="/tags/promise/">
+                                <span class="chip bg-color">promise</span>
                             </a>
                         
                     </div>
@@ -377,8 +380,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Axios/" class="post-category">
-                                Axios
+                            <a href="/categories/promise/" class="post-category">
+                                promise
                             </a>
                         
                     </div>
@@ -390,7 +393,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-03-01
+                    2023-03-02
                 </div>
                 
 
@@ -414,78 +417,52 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Axios 是一个基于 promise 网络请求库，作用于node.js 和浏览器中。它是 isomorphic 的(即同一套代码可以运行在浏览器和node.js中)。在服务端它使用原生 node.js http 模块, 而在客户端 (浏览端) 则使用 XMLHttpRequests。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="使用-npm"><a href="#使用-npm" class="headerlink" title="使用 npm:"></a>使用 npm:</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> axios<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><h3 id="关于async-await、promise和setTimeout的执行顺序"><a href="#关于async-await、promise和setTimeout的执行顺序" class="headerlink" title="关于async/await、promise和setTimeout的执行顺序"></a>关于async/await、promise和setTimeout的执行顺序</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">async <span class="token keyword">function</span> <span class="token function-name function">async1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	console.log<span class="token punctuation">(</span><span class="token string">'async1 start'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	await async2<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	console.log<span class="token punctuation">(</span><span class="token string">'asnyc1 end'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+async <span class="token keyword">function</span> <span class="token function-name function">async2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	console.log<span class="token punctuation">(</span><span class="token string">'async2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+console.log<span class="token punctuation">(</span><span class="token string">'script start'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+setTimeout<span class="token punctuation">((</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+	console.log<span class="token punctuation">(</span><span class="token string">'setTimeOut'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>, <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+async1<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+new Promise<span class="token punctuation">(</span>function <span class="token punctuation">(</span>reslove<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	console.log<span class="token punctuation">(</span><span class="token string">'promise1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	reslove<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>.then<span class="token punctuation">(</span><span class="token function-name function">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	console.log<span class="token punctuation">(</span><span class="token string">'promise2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+console.log<span class="token punctuation">(</span><span class="token string">'script end'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<h3 id="使用-bower"><a href="#使用-bower" class="headerlink" title="使用 bower:"></a>使用 bower:</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ bower <span class="token function">install</span> axios<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="使用-yarn"><a href="#使用-yarn" class="headerlink" title="使用 yarn:"></a>使用 yarn:</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">yarn</span> <span class="token function">add</span> axios<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+输出
+script start
+async1 start
+async2
+promise1
+script end
+asnyc1 end
+promise2
+setTimeOut
 
-<h3 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>script <span class="token assign-left variable">src</span><span class="token operator">=</span><span class="token string">"https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"</span><span class="token operator">></span><span class="token operator">&lt;</span>/script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="Axios-拦截器统一管理接口请求响应"><a href="#Axios-拦截器统一管理接口请求响应" class="headerlink" title="Axios 拦截器统一管理接口请求响应"></a>Axios 拦截器统一管理接口请求响应</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">// 添加请求拦截器
-axios.interceptors.request.use<span class="token punctuation">(</span>function <span class="token punctuation">(</span>config<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    // 在发送请求之前做些什么
-    <span class="token builtin class-name">return</span> config<span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>, <span class="token keyword">function</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    // 对请求错误做些什么
-    <span class="token builtin class-name">return</span> Promise.reject<span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+整个代码片段（script）作为一个宏任务执行console.log<span class="token punctuation">(</span><span class="token string">'script start'</span><span class="token punctuation">)</span>
+执行setTimeout，是一个异步动作，放入宏任务异步队列中；
+执行async1<span class="token punctuation">(</span><span class="token punctuation">)</span>，输出async1 start，继续向下执行；
+执行async2<span class="token punctuation">(</span><span class="token punctuation">)</span>，输出async2，并返回了一个promise对象，await让出了线程，把返回的promise加入了微任务异步队列，所以async1<span class="token punctuation">(</span><span class="token punctuation">)</span>下面的代码也要等待上面完成后继续执行<span class="token punctuation">;</span>
+执行 new Promise，输出promise1，然后将resolve<span class="token punctuation">(</span><span class="token punctuation">)</span>放入微任务异步队列；
+执行console.log<span class="token punctuation">(</span><span class="token string">'script end'</span><span class="token punctuation">)</span>，输出script end；
+到此同步的代码就都执行完成了，然后去微任务异步队列里去获取任务
+接下来执行resolve（async2返回的promise返回的），输出了async1 end；
+然后执行resolve（new Promise的），输出了promise2；
+最后执行setTimeout，输出了settimeout
 
-// 添加响应拦截器
-axios.interceptors.response.use<span class="token punctuation">(</span>function <span class="token punctuation">(</span>response<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    // 2xx 范围内的状态码都会触发该函数。
-    // 对响应数据做点什么
-    <span class="token builtin class-name">return</span> response<span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>, <span class="token keyword">function</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    // 超出 2xx 范围的状态码都会触发该函数。
-    // 对响应错误做点什么
-    <span class="token builtin class-name">return</span> Promise.reject<span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>项目拦截例子（可根据具体项目需求添加状态码switch判断）</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">import</span> axios from <span class="token string">'axios'</span>
-<span class="token function">import</span> <span class="token punctuation">&#123;</span> Toast <span class="token punctuation">&#125;</span> from <span class="token string">'vant'</span>
-<span class="token function">import</span> store from <span class="token string">'../store'</span>
-<span class="token function">import</span> router from <span class="token string">'../router'</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-axios.defaults.baseURL <span class="token operator">=</span> <span class="token string">'http://172.22.4.24:3000'</span>
-
-axios.interceptors.request.use<span class="token punctuation">((</span>config<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
-    config.headers<span class="token punctuation">[</span><span class="token string">'Content-Type'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'application/json'</span>
-    store.state.isLoading <span class="token operator">=</span> <span class="token boolean">true</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>config.otherBaseUrl<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        config.baseURL <span class="token operator">=</span> <span class="token string">'https://api.iwyu.com/API/weibo/'</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token builtin class-name">return</span> config
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-axios.interceptors.response.use<span class="token punctuation">((</span>res<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
-    const code <span class="token operator">=</span> res.status<span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>typeof res.data <span class="token operator">!=</span><span class="token operator">=</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        Toast.fail<span class="token punctuation">(</span><span class="token string">'服务端异常！'</span><span class="token punctuation">)</span>
-        <span class="token builtin class-name">return</span> Promise.reject<span class="token punctuation">(</span>res<span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>code <span class="token operator">!=</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>res.data.message<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            Toast.fail<span class="token punctuation">(</span>res.data.message<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        if<span class="token punctuation">(</span>res.data.resultCode <span class="token operator">==</span> <span class="token number">416</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            router.push<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>path: <span class="token string">'/login'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>code <span class="token operator">==</span> <span class="token number">200</span> <span class="token operator">&amp;&amp;</span> res.data<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        store.state.isLoading <span class="token operator">=</span> <span class="token boolean">false</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>res.data.code <span class="token operator">!=</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            Toast.fail<span class="token punctuation">(</span>res.data.message<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token builtin class-name">return</span> res.data<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>, <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
-    Toast.fail<span class="token punctuation">(</span><span class="token string">'服务端异常！'</span><span class="token punctuation">)</span>
-    <span class="token builtin class-name">return</span> Promise.reject<span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token builtin class-name">export</span> default axios<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -511,7 +488,7 @@ axios.interceptors.response.use<span class="token punctuation">((</span>res<span
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2023/03/01/axios/">http://example.com/2023/03/01/axios/</a>
+                    <a href="http://example.com/2023/03/02/promise/">http://example.com/2023/03/02/promise/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -549,12 +526,12 @@ axios.interceptors.response.use<span class="token punctuation">((</span>res<span
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/axios/">
-                                    <span class="chip bg-color">axios</span>
+                                <a href="/tags/async-await/">
+                                    <span class="chip bg-color">async/await</span>
                                 </a>
                             
-                                <a href="/tags/Vue/">
-                                    <span class="chip bg-color">Vue</span>
+                                <a href="/tags/promise/">
+                                    <span class="chip bg-color">promise</span>
                                 </a>
                             
                         </div>
@@ -600,17 +577,18 @@ axios.interceptors.response.use<span class="token punctuation">((</span>res<span
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/03/01/hello-world/">
+                <a href="/2023/03/02/promise/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Hexo 相关">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Promise、async/await相关">
                         
-                        <span class="card-title">Hexo 相关</span>
+                        <span class="card-title">Promise、async/await相关</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -620,30 +598,31 @@ axios.interceptors.response.use<span class="token punctuation">((</span>res<span
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Hexo/" class="post-category">
-                                    Hexo
+                            <a href="/categories/promise/" class="post-category">
+                                    promise
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
-                        <span class="chip bg-color">前端</span>
+                    <a href="/tags/async-await/">
+                        <span class="chip bg-color">async/await</span>
                     </a>
                     
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/promise/">
+                        <span class="chip bg-color">promise</span>
                     </a>
                     
                 </div>
@@ -657,31 +636,31 @@ axios.interceptors.response.use<span class="token punctuation">((</span>res<span
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/03/01/example/">
+                <a href="/2023/03/02/vue/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Hexo-theme主题介绍">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Vue相关">
                         
-                        <span class="card-title">Hexo-theme主题介绍</span>
+                        <span class="card-title">Vue相关</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是你自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-02
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Hexo/" class="post-category">
-                                    Hexo
+                            <a href="/categories/Vue/" class="post-category">
+                                    Vue
                                 </a>
                             
                             
@@ -691,12 +670,8 @@ axios.interceptors.response.use<span class="token punctuation">((</span>res<span
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
-                        <span class="chip bg-color">前端</span>
-                    </a>
-                    
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
                     </a>
                     
                 </div>
