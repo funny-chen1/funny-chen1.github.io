@@ -5,10 +5,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Vue相关, Funny">
-    <meta name="description" content="provide和injectprovide和inject实现多层级组件传参，实现增删改视图局部刷新
-&amp;lt;template&gt;
-  &amp;lt;div id=&#34;app&#34;&gt;
-    &amp;lt;router-view v-if=&#34;isRouterAl">
+    <meta name="description" content="Vue3 html单页面模板&amp;lt;!DOCTYPE html&gt;
+&amp;lt;html lang=&#34;en&#34;&gt;
+&amp;lt;head&gt;
+    &amp;lt;meta charset=&#34;UTF-8&#34;&gt;
+    &amp;lt;title&gt;Vue&amp;lt;/title">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -413,7 +414,64 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="provide和inject"><a href="#provide和inject" class="headerlink" title="provide和inject"></a>provide和inject</h2><p>provide和inject实现多层级组件传参，实现增删改视图局部刷新</p>
+                <h2 id="Vue3-html单页面模板"><a href="#Vue3-html单页面模板" class="headerlink" title="Vue3 html单页面模板"></a>Vue3 html单页面模板</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html<span class="token operator">></span>
+<span class="token operator">&lt;</span>html <span class="token assign-left variable">lang</span><span class="token operator">=</span><span class="token string">"en"</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>head<span class="token operator">></span>
+    <span class="token operator">&lt;</span>meta <span class="token assign-left variable">charset</span><span class="token operator">=</span><span class="token string">"UTF-8"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>title<span class="token operator">></span>Vue<span class="token operator">&lt;</span>/title<span class="token operator">></span>
+<span class="token operator">&lt;</span>/head<span class="token operator">></span>
+<span class="token operator">&lt;</span>body<span class="token operator">></span>
+    <span class="token operator">&lt;</span>div <span class="token assign-left variable">id</span><span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>h<span class="token operator"><span class="token file-descriptor important">1</span>></span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> msg <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span>/h<span class="token operator"><span class="token file-descriptor important">1</span>></span>
+        <span class="token operator">&lt;</span>input <span class="token assign-left variable">type</span><span class="token operator">=</span><span class="token string">"number"</span> v-model<span class="token operator">=</span><span class="token string">"num1"</span><span class="token operator">></span> + <span class="token operator">&lt;</span>input <span class="token assign-left variable">type</span><span class="token operator">=</span><span class="token string">"number"</span> v-model<span class="token operator">=</span><span class="token string">"num2"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>h<span class="token operator"><span class="token file-descriptor important">3</span>></span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> num <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span>/h<span class="token operator"><span class="token file-descriptor important">3</span>></span>
+        <span class="token operator">&lt;</span>div<span class="token operator">></span>
+            <span class="token operator">&lt;</span>button @click<span class="token operator">=</span><span class="token string">"submit"</span><span class="token operator">></span>提交<span class="token operator">&lt;</span>/button<span class="token operator">></span>
+        <span class="token operator">&lt;</span>/div<span class="token operator">></span>
+    <span class="token operator">&lt;</span>/div<span class="token operator">></span>
+    <span class="token operator">&lt;</span>script <span class="token assign-left variable">src</span><span class="token operator">=</span><span class="token string">"https://unpkg.com/vue@next"</span><span class="token operator">></span><span class="token operator">&lt;</span>/script<span class="token operator">></span>
+    <span class="token operator">&lt;</span>script <span class="token assign-left variable">src</span><span class="token operator">=</span><span class="token string">"https://unpkg.com/axios/dist/axios.min.js"</span><span class="token operator">></span><span class="token operator">&lt;</span>/script<span class="token operator">></span>
+    <span class="token operator">&lt;</span>script<span class="token operator">></span>
+        const <span class="token punctuation">&#123;</span> onMounted, createApp, reactive, toRefs, computed <span class="token punctuation">&#125;</span> <span class="token operator">=</span> Vue<span class="token punctuation">;</span>
+        const app <span class="token operator">=</span> createApp<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+            <span class="token function-name function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                // 定义响应式变量
+                const state <span class="token operator">=</span> reactive<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+                    msg: <span class="token string">'Vue'</span>,
+                    num: <span class="token number">0</span>,
+                    num1: <span class="token number">0</span>,
+                    num2: <span class="token number">0</span>
+                <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                // 定义方法函数
+                const submit <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+                    alert<span class="token punctuation">(</span>state.num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+                // 生命周期函数
+                onMounted<span class="token punctuation">((</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+                    console.log<span class="token punctuation">(</span><span class="token string">'success'</span><span class="token punctuation">)</span>
+                <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                // 计算属性
+                state.num <span class="token operator">=</span> computed<span class="token punctuation">((</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+                    <span class="token builtin class-name">return</span> state.num1 + state.num2
+                <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token builtin class-name">return</span> <span class="token punctuation">&#123;</span>
+                    <span class="token punctuation">..</span>.toRefs<span class="token punctuation">(</span>state<span class="token punctuation">)</span>,
+                    submit
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>.mount<span class="token punctuation">(</span><span class="token string">"#app"</span><span class="token punctuation">)</span>
+
+        // 如果需要使用ui组件在这引入
+        // app.use<span class="token punctuation">(</span>ElementPlus<span class="token punctuation">)</span>
+    <span class="token operator">&lt;</span>/script<span class="token operator">></span>
+<span class="token operator">&lt;</span>/body<span class="token operator">></span>
+<span class="token operator">&lt;</span>/html<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="provide和inject"><a href="#provide和inject" class="headerlink" title="provide和inject"></a>provide和inject</h2><p>provide和inject实现多层级组件传参，实现增删改视图局部刷新</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>template<span class="token operator">></span>
   <span class="token operator">&lt;</span>div <span class="token assign-left variable">id</span><span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
     <span class="token operator">&lt;</span>router-view v-if<span class="token operator">=</span><span class="token string">"isRouterAlive"</span> /<span class="token operator">></span>
@@ -449,6 +507,19 @@
 <span class="token punctuation">&#125;</span>
 在需要的地方 this.reload<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Vue修饰符"><a href="#Vue修饰符" class="headerlink" title="Vue修饰符"></a>Vue修饰符</h2><h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>根据每一个修饰符的功能，我们可以得到以下修饰符的应用场景：</p>
+<ul>
+<li>.stop：阻止事件冒泡</li>
+<li>.native：绑定原生事件</li>
+<li>.once：事件只执行一次</li>
+<li>.self ：将事件绑定在自身身上，相当于阻止事件冒泡</li>
+<li>.prevent：阻止默认事件</li>
+<li>.caption：用于事件捕获</li>
+<li>.once：只触发一次</li>
+<li>.keyCode：监听特定键盘按下</li>
+<li>.right：右键</li>
+</ul>
 
                 
             </div>
