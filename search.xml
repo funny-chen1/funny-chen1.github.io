@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Vue移动端适配配置</title>
+      <link href="/2023/06/14/mobile/"/>
+      <url>/2023/06/14/mobile/</url>
+      
+        <content type="html"><![CDATA[<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> postcss postcss-pxtorem <span class="token parameter variable">--save</span><span class="token function">npm</span> <span class="token function">install</span> amfe-flexible <span class="token parameter variable">--save</span><span class="token function">npm</span> <span class="token function">install</span> autoprefixer <span class="token parameter variable">--save</span><span class="token comment">#postcss-pxtorem是PostCSS的插件，主要将px转换成rem单位。</span><span class="token comment">#amfe-flexible是配置可伸缩布局方案。</span><span class="token comment">#Autoprefixer是一款自动管理浏览器前缀的插件，可以解析css文件并且添加前缀到css内容里，使用Can I Use(caniuse网站)的数据决定哪些前缀是需要的。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>在mian.js中引入</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">import</span> <span class="token string">'amfe-flexible'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>在vite.config.js中配置</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">import</span> <span class="token punctuation">&#123;</span> defineConfig <span class="token punctuation">&#125;</span> from <span class="token string">'vite'</span><span class="token function">import</span> vue from <span class="token string">'@vitejs/plugin-vue'</span><span class="token function">import</span> <span class="token punctuation">&#123;</span> resolve <span class="token punctuation">&#125;</span> from <span class="token string">'path'</span><span class="token function">import</span> autoprefixer from <span class="token string">'autoprefixer'</span><span class="token function">import</span> postCssPxToRem from <span class="token string">'postcss-pxtorem'</span>// https://vitejs.dev/config/<span class="token builtin class-name">export</span> default defineConfig<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>  plugins: <span class="token punctuation">[</span>vue<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>,  css: <span class="token punctuation">&#123;</span>    postcss: <span class="token punctuation">&#123;</span>      plugins: <span class="token punctuation">[</span>        autoprefixer<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>          overrideBrowserslist: <span class="token punctuation">[</span><span class="token string">'Android 4.1'</span>, <span class="token string">'iOS 7.1'</span>, <span class="token string">'Chrome > 31'</span>, <span class="token string">'ff > 31'</span>, <span class="token string">'ie >= 8'</span><span class="token punctuation">]</span>,        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>,        postCssPxToRem<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>          // 自适应，px<span class="token operator">></span>rem转换          rootValue: <span class="token number">37.5</span>, // <span class="token number">75</span>表示750设计稿，37.5表示375设计稿          propList: <span class="token punctuation">[</span><span class="token string">'*'</span><span class="token punctuation">]</span>, // 需要转换的属性，这里选择全部都进行转换          selectorBlackList: <span class="token punctuation">[</span><span class="token string">'norem'</span><span class="token punctuation">]</span>, // 过滤掉norem-开头的class，不进行rem转换        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>,      <span class="token punctuation">]</span>    <span class="token punctuation">&#125;</span>  <span class="token punctuation">&#125;</span>,  server: <span class="token punctuation">&#123;</span>    host: <span class="token string">'0.0.0.0'</span>,    open: false,    proxy: <span class="token punctuation">&#123;</span>      <span class="token string">'api/'</span><span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>        target: <span class="token string">"https://api.iwyu.com/API/weibo/"</span>,        changeOrigin: <span class="token boolean">true</span>      <span class="token punctuation">&#125;</span>    <span class="token punctuation">&#125;</span>  <span class="token punctuation">&#125;</span>,  resolve: <span class="token punctuation">&#123;</span>    //统一设置文件路径@    alias: <span class="token punctuation">&#123;</span>      <span class="token string">'@'</span><span class="token builtin class-name">:</span> resolve<span class="token punctuation">(</span><span class="token string">'./src'</span><span class="token punctuation">)</span>    <span class="token punctuation">&#125;</span>  <span class="token punctuation">&#125;</span>,  base: <span class="token string">'./'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 移动端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Vue </tag>
+            
+            <tag> 移动端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo 相关</title>
       <link href="/2023/05/23/hello-world/"/>
       <url>/2023/05/23/hello-world/</url>
