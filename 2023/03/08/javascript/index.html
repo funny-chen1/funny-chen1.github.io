@@ -799,6 +799,436 @@ isWeekday<span class="token punctuation">(</span><span class="token string">'202
 <span class="token operator">&lt;</span>/body<span class="token operator">></span>
 
 <span class="token operator">&lt;</span>/html<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="列表拖拽"><a href="#列表拖拽" class="headerlink" title="列表拖拽"></a>列表拖拽</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>template<span class="token operator">></span>
+    <span class="token operator">&lt;</span>div <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"container"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>el-card<span class="token operator">></span>
+            <span class="token operator">&lt;</span>div <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"flex"</span><span class="token operator">></span>
+                <span class="token operator">&lt;</span>div<span class="token operator">></span>
+                    <span class="token operator">&lt;</span>div <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"item"</span> v-for<span class="token operator">=</span><span class="token string">"(item, i) in drag.list"</span> :key<span class="token operator">=</span><span class="token string">"item.id"</span> <span class="token assign-left variable">draggable</span><span class="token operator">=</span><span class="token string">"true"</span>
+                        @dragstart<span class="token operator">=</span><span class="token string">"dragstart(<span class="token variable">$event</span>, i)"</span> @dragenter<span class="token operator">=</span><span class="token string">"dragenter(<span class="token variable">$event</span>, i)"</span> @dragend<span class="token operator">=</span><span class="token string">"dragend"</span>
+                        @dragover<span class="token operator">=</span><span class="token string">"dragover"</span><span class="token operator">></span>
+                        <span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> item.name <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
+                    <span class="token operator">&lt;</span>/div<span class="token operator">></span>
+                <span class="token operator">&lt;</span>/div<span class="token operator">></span>
+
+                <span class="token operator">&lt;</span>ul<span class="token operator">></span>
+                    <span class="token operator">&lt;</span>li v-for<span class="token operator">=</span><span class="token string">"item in drag.list"</span> :key<span class="token operator">=</span><span class="token string">"item.id"</span><span class="token operator">></span>
+                        <span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> item <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
+                    <span class="token operator">&lt;</span>/li<span class="token operator">></span>
+                <span class="token operator">&lt;</span>/ul<span class="token operator">></span>
+            <span class="token operator">&lt;</span>/div<span class="token operator">></span>
+
+        <span class="token operator">&lt;</span>/el-card<span class="token operator">></span>
+    <span class="token operator">&lt;</span>/div<span class="token operator">></span>
+<span class="token operator">&lt;</span>/template<span class="token operator">></span>
+<span class="token operator">&lt;</span>script setup<span class="token operator">></span>
+<span class="token function">import</span> <span class="token punctuation">&#123;</span> reactive <span class="token punctuation">&#125;</span> from <span class="token string">'vue'</span>
+const drag <span class="token operator">=</span> reactive<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+    list: <span class="token punctuation">[</span>
+        <span class="token punctuation">&#123;</span> name: <span class="token string">'a'</span>, id: <span class="token number">1</span> <span class="token punctuation">&#125;</span>,
+        <span class="token punctuation">&#123;</span> name: <span class="token string">'b'</span>, id: <span class="token number">2</span> <span class="token punctuation">&#125;</span>,
+        <span class="token punctuation">&#123;</span> name: <span class="token string">'c'</span>, id: <span class="token number">3</span> <span class="token punctuation">&#125;</span>,
+        <span class="token punctuation">&#123;</span> name: <span class="token string">'d'</span>, id: <span class="token number">4</span> <span class="token punctuation">&#125;</span>,
+        <span class="token punctuation">&#123;</span> name: <span class="token string">'e'</span>, id: <span class="token number">5</span> <span class="token punctuation">&#125;</span>,
+    <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+<span class="token builtin class-name">let</span> dragIndex <span class="token operator">=</span> <span class="token number">0</span>
+
+<span class="token keyword">function</span> dragstart<span class="token punctuation">(</span>e, index<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    e.stopPropagation<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    dragIndex <span class="token operator">=</span> index
+    setTimeout<span class="token punctuation">((</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+        e.target.classList.add<span class="token punctuation">(</span><span class="token string">'moveing'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>, <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">function</span> dragenter<span class="token punctuation">(</span>e, index<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    e.preventDefault<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    // 拖拽到原位置时不触发
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>dragIndex <span class="token operator">!=</span><span class="token operator">=</span> index<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        const <span class="token builtin class-name">source</span> <span class="token operator">=</span> drag.list<span class="token punctuation">[</span>dragIndex<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        drag.list.splice<span class="token punctuation">(</span>dragIndex, <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        drag.list.splice<span class="token punctuation">(</span>index, <span class="token number">0</span>, <span class="token builtin class-name">source</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        // 更新节点位置
+        dragIndex <span class="token operator">=</span> index
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">function</span> dragover<span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    e.preventDefault<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    e.dataTransfer.dropEffect <span class="token operator">=</span> <span class="token string">'move'</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">function</span> dragend<span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    e.target.classList.remove<span class="token punctuation">(</span><span class="token string">'moveing'</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+<span class="token operator">&lt;</span>/script<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>style <span class="token assign-left variable">lang</span><span class="token operator">=</span><span class="token string">"scss"</span> scoped<span class="token operator">></span>
+
+.flex <span class="token punctuation">&#123;</span>
+    display: flex<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+.item <span class="token punctuation">&#123;</span>
+    width: 200px<span class="token punctuation">;</span>
+    height: 40px<span class="token punctuation">;</span>
+    line-height: 40px<span class="token punctuation">;</span>
+    // background-color: <span class="token comment">#f5f6f8;</span>
+    background-color: skyblue<span class="token punctuation">;</span>
+    text-align: center<span class="token punctuation">;</span>
+    margin: 10px<span class="token punctuation">;</span>
+    color: <span class="token comment">#fff;</span>
+    font-size: 18px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+.container <span class="token punctuation">&#123;</span>
+    position: relative<span class="token punctuation">;</span>
+    padding: <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+.moveing <span class="token punctuation">&#123;</span>
+    opacity: <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token operator">&lt;</span>/style<span class="token operator">></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="动态词云"><a href="#动态词云" class="headerlink" title="动态词云"></a>动态词云</h2><h3 id="WordCloudRandom-vue"><a href="#WordCloudRandom-vue" class="headerlink" title="WordCloudRandom.vue"></a>WordCloudRandom.vue</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>script setup <span class="token assign-left variable">lang</span><span class="token operator">=</span><span class="token string">"ts"</span><span class="token operator">></span>
+<span class="token function">import</span> <span class="token punctuation">&#123;</span> ref, onMounted, onUnmounted <span class="token punctuation">&#125;</span> from <span class="token string">'vue'</span>
+
+interface AnimateElement extends HTMLElement <span class="token punctuation">&#123;</span>
+    animateInfo: <span class="token punctuation">&#123;</span>
+        scale?: number
+        x?: number
+        y?: number
+        z?: number
+    <span class="token punctuation">&#125;</span>
+    prevAnimateInfo: <span class="token punctuation">&#123;</span>
+        scale?: number
+        x?: number
+        y?: number
+        z?: number
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+const container <span class="token operator">=</span> ref<span class="token operator">&lt;</span>HTMLElement<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin class-name">let</span> randomAnimate: RandomAnimate
+
+class RandomAnimate <span class="token punctuation">&#123;</span>
+    container: HTMLElement <span class="token operator">|</span> null <span class="token operator">=</span> null
+    items: AnimateElement<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    minScale <span class="token operator">=</span> <span class="token number">0.9</span>
+    scaleInterval <span class="token operator">=</span> <span class="token number">10000</span> // 缩放间隔
+    xInterval <span class="token operator">=</span> <span class="token number">40000</span> // 横向位移速度
+    yInterval <span class="token operator">=</span> <span class="token number">40000</span> // 纵向位移速度
+    animateInterval <span class="token operator">=</span> <span class="token number">16</span> // 动画间隔 16ms
+    index <span class="token operator">=</span> <span class="token number">1</span>
+    animationFrame: number <span class="token operator">|</span> undefined
+    restartTimer: number <span class="token operator">|</span> undefined
+    mutationObserver: MutationObserver <span class="token operator">|</span> undefined
+
+    constructor<span class="token punctuation">(</span>container: HTMLElement<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        this.container <span class="token operator">=</span> container
+        this.init<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token function-name function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        this.container<span class="token operator">!</span>.style.position <span class="token operator">=</span> <span class="token string">'relative'</span>
+        this.createMutation<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token function-name function">createMutation</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        this.mutationObserver <span class="token operator">=</span> new MutationObserver<span class="token punctuation">(</span>function <span class="token punctuation">(</span>mutationRecords<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            mutationRecords.forEach<span class="token variable"><span class="token punctuation">((</span>record<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> &#123;
+                const &#123; addedNodes<span class="token punctuation">,</span> removedNodes &#125; <span class="token operator">=</span> record
+                if <span class="token punctuation">(</span>addedNodes.length<span class="token punctuation">)</span> &#123;
+                    randomAnimate.add<span class="token punctuation">(</span>
+                        Array.from<span class="token punctuation">(</span>addedNodes<span class="token punctuation">)</span>.filter<span class="token punctuation">(</span>
+                            <span class="token punctuation">(</span>node<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> node.nodeType <span class="token operator">==</span><span class="token operator">=</span> <span class="token number">1</span>
+                        <span class="token punctuation">)</span> as AnimateElement[]
+                    <span class="token punctuation">)</span>
+                &#125;
+                if <span class="token punctuation">(</span>removedNodes.length<span class="token punctuation">)</span> &#123;
+                    randomAnimate.remove<span class="token punctuation">(</span>
+                        Array.from<span class="token punctuation">(</span>removedNodes<span class="token punctuation">)</span>.filter<span class="token punctuation">(</span>
+                            <span class="token punctuation">(</span>node<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> node.nodeType <span class="token operator">==</span><span class="token operator">=</span> <span class="token number">1</span>
+                        <span class="token punctuation">)</span> as AnimateElement[]
+                    <span class="token punctuation">)</span>
+                &#125;
+            &#125;<span class="token punctuation">)</span>
+        &#125;<span class="token punctuation">)</span>
+
+        this.mutationObserver.observe<span class="token punctuation">(</span>container.value<span class="token operator">!</span><span class="token punctuation">,</span> &#123;
+            childList<span class="token operator">:</span> true<span class="token punctuation">,</span>
+            attributes<span class="token operator">:</span> false
+        &#125;<span class="token punctuation">)</span>
+    &#125;
+
+    add<span class="token punctuation">(</span>items<span class="token operator">:</span> AnimateElement <span class="token operator">|</span> AnimateElement[]<span class="token punctuation">)</span> &#123;
+        items <span class="token operator">=</span> Array.isArray<span class="token punctuation">(</span>items<span class="token punctuation">)</span> <span class="token operator">?</span> items <span class="token operator">:</span> [items]
+        items.forEach<span class="token punctuation">((</span>item<span class="token operator">:</span> AnimateElement<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> &#123;
+            item.style.position <span class="token operator">=</span> 'absolute'
+            item.style.left <span class="token operator">=</span> '<span class="token number">0</span>px'
+            item.style.top <span class="token operator">=</span> '<span class="token number">0</span>px'
+            item.animateInfo <span class="token operator">=</span> &#123;&#125;
+            item.prevAnimateInfo <span class="token operator">=</span> &#123;&#125; <span class="token operator">/</span><span class="token operator">/</span> 上一状态，用来判断移动方向与缩放状态
+            this.setScale<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+            this.setPosition<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+            this.setHover<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+            this.render<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+        &#125;<span class="token punctuation">)</span>
+        this.items.push<span class="token punctuation">(</span>...items<span class="token punctuation">)</span>
+    &#125;
+
+    remove<span class="token punctuation">(</span>item<span class="token operator">:</span> AnimateElement <span class="token operator">|</span> AnimateElement[]<span class="token punctuation">)</span> &#123;
+        if <span class="token punctuation">(</span>Array.isArray<span class="token punctuation">(</span>item<span class="token punctuation">))</span></span> <span class="token punctuation">&#123;</span>
+            item.forEach<span class="token variable"><span class="token punctuation">((</span>i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> &#123;
+                this.remove<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+            &#125;<span class="token punctuation">)</span>
+        &#125; else &#123;
+            <span class="token operator">/</span><span class="token operator">/</span> item.parentElement<span class="token operator">!</span>.removeChild<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+            const index <span class="token operator">=</span> this.items.indexOf<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+            if <span class="token punctuation">(</span>index <span class="token operator">></span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> &#123;
+                this.items.splice<span class="token punctuation">(</span>index<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+            &#125;
+        &#125;
+    &#125;
+
+    setScale<span class="token punctuation">(</span>item<span class="token operator">:</span> AnimateElement<span class="token punctuation">)</span> &#123;
+        const maxZ <span class="token operator">=</span> this.items.length <span class="token operator">*</span> <span class="token number">100</span>
+        const minScale <span class="token operator">=</span> this.minScale
+        const &#123; animateInfo<span class="token punctuation">,</span> prevAnimateInfo &#125; <span class="token operator">=</span> item
+        if <span class="token punctuation">(</span><span class="token operator">!</span>animateInfo.scale<span class="token punctuation">)</span> &#123;
+            animateInfo.scale <span class="token operator">=</span> Math.random<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> minScale<span class="token punctuation">)</span> <span class="token operator">+</span> minScale
+        &#125; else &#123;
+            const scaleInterval <span class="token operator">=</span> this.scaleInterval
+            const scaleStep <span class="token operator">=</span> <span class="token punctuation">((</span><span class="token number">1</span> <span class="token operator">-</span> minScale<span class="token punctuation">)</span> <span class="token operator">/</span> scaleInterval<span class="token punctuation">)</span> <span class="token operator">*</span> this.animateInterval
+            const _animate <span class="token operator">=</span> JSON.parse<span class="token punctuation">(</span>JSON.stringify<span class="token punctuation">(</span>animateInfo<span class="token punctuation">))</span></span>
+
+            <span class="token builtin class-name">let</span> direction
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>prevAnimateInfo.scale<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                direction <span class="token operator">=</span>
+                    animateInfo.scale <span class="token operator">></span> prevAnimateInfo.scale <span class="token operator">||</span>
+                        animateInfo.scale <span class="token operator">==</span><span class="token operator">=</span> minScale
+                        ? <span class="token number">1</span>
+                        <span class="token builtin class-name">:</span> <span class="token parameter variable">-1</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                direction <span class="token operator">=</span> Math.random<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0.5</span> ? <span class="token number">1</span> <span class="token builtin class-name">:</span> <span class="token parameter variable">-1</span> // 随机开始放大或缩小
+            <span class="token punctuation">&#125;</span>
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>direction <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                // 放大
+                animateInfo.scale <span class="token operator">+=</span> scaleStep
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>animateInfo.scale <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    animateInfo.scale <span class="token operator">=</span> <span class="token number">1</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                // 缩小
+                animateInfo.scale -<span class="token operator">=</span> scaleStep
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>animateInfo.scale <span class="token operator">&lt;</span> minScale<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    animateInfo.scale <span class="token operator">=</span> minScale
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+            item.prevAnimateInfo.scale <span class="token operator">=</span> _animate.scale
+        <span class="token punctuation">&#125;</span>
+        animateInfo.z <span class="token operator">=</span> ~~<span class="token variable"><span class="token punctuation">((</span><span class="token punctuation">(</span>animateInfo.scale <span class="token operator">-</span> minScale<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> minScale<span class="token punctuation">))</span></span> * maxZ<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+
+    setPosition<span class="token punctuation">(</span>item: AnimateElement<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        const maxX <span class="token operator">=</span> this.container<span class="token operator">!</span>.clientWidth - item.clientWidth
+        const maxY <span class="token operator">=</span> this.container<span class="token operator">!</span>.clientHeight - item.clientHeight
+        const <span class="token punctuation">&#123;</span> animateInfo, prevAnimateInfo <span class="token punctuation">&#125;</span> <span class="token operator">=</span> item
+        const _animate <span class="token operator">=</span> JSON.parse<span class="token punctuation">(</span>JSON.stringify<span class="token punctuation">(</span>animateInfo<span class="token punctuation">))</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>animateInfo.x <span class="token operator">==</span><span class="token operator">=</span> undefined<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            animateInfo.x <span class="token operator">=</span> Math.random<span class="token punctuation">(</span><span class="token punctuation">)</span> * maxX
+            animateInfo.y <span class="token operator">=</span> Math.random<span class="token punctuation">(</span><span class="token punctuation">)</span> * maxY
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token builtin class-name">let</span> <span class="token punctuation">&#123;</span> xInterval, yInterval, animateInterval <span class="token punctuation">&#125;</span> <span class="token operator">=</span> this
+            // xInterval <span class="token operator">=</span> xInterval - Math.random<span class="token punctuation">(</span><span class="token punctuation">)</span> * <span class="token number">15000</span>
+            // yInterval <span class="token operator">=</span> yInterval - Math.random<span class="token punctuation">(</span><span class="token punctuation">)</span> * <span class="token number">15000</span>
+            const xStep <span class="token operator">=</span> <span class="token punctuation">(</span>maxX / xInterval<span class="token punctuation">)</span> * animateInterval
+            const yStep <span class="token operator">=</span> <span class="token punctuation">(</span>maxY / yInterval<span class="token punctuation">)</span> * animateInterval
+
+            <span class="token builtin class-name">let</span> directionX, directionY
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>prevAnimateInfo.x <span class="token operator">==</span><span class="token operator">=</span> undefined<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                directionX <span class="token operator">=</span> Math.random<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0.5</span> ? <span class="token number">1</span> <span class="token builtin class-name">:</span> <span class="token parameter variable">-1</span> // 随机开始向左或向右
+                directionY <span class="token operator">=</span> Math.random<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0.5</span> ? <span class="token number">1</span> <span class="token builtin class-name">:</span> <span class="token parameter variable">-1</span> // 随机开始向上或向下
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                directionX <span class="token operator">=</span>
+                    animateInfo.x <span class="token operator">></span> prevAnimateInfo.x <span class="token operator">||</span> animateInfo.x <span class="token operator">==</span><span class="token operator">=</span> <span class="token number">0</span> ? <span class="token number">1</span> <span class="token builtin class-name">:</span> <span class="token parameter variable">-1</span>
+                directionY <span class="token operator">=</span>
+                    animateInfo.y<span class="token operator">!</span> <span class="token operator">></span> prevAnimateInfo.y<span class="token operator">!</span> <span class="token operator">||</span> animateInfo.y <span class="token operator">==</span><span class="token operator">=</span> <span class="token number">0</span> ? <span class="token number">1</span> <span class="token builtin class-name">:</span> <span class="token parameter variable">-1</span>
+            <span class="token punctuation">&#125;</span>
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>directionX <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                // 向右
+                animateInfo.x <span class="token operator">+=</span> xStep
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>animateInfo.x <span class="token operator">></span> maxX<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    animateInfo.x <span class="token operator">=</span> maxX
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                // 向左
+                animateInfo.x -<span class="token operator">=</span> xStep
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>animateInfo.x <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    animateInfo.x <span class="token operator">=</span> <span class="token number">0</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>directionY <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                // 向下
+                animateInfo.y<span class="token operator">!</span> <span class="token operator">+=</span> yStep
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>animateInfo.y<span class="token operator">!</span> <span class="token operator">></span> maxY<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    animateInfo.y <span class="token operator">=</span> maxY
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                // 向上
+                animateInfo.y<span class="token operator">!</span> -<span class="token operator">=</span> yStep
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>animateInfo.y<span class="token operator">!</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    animateInfo.y <span class="token operator">=</span> <span class="token number">0</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+
+            item.prevAnimateInfo.x <span class="token operator">=</span> _animate.x
+            item.prevAnimateInfo.y <span class="token operator">=</span> _animate.y
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    setHover<span class="token punctuation">(</span>item: AnimateElement<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        item.addEventListener<span class="token punctuation">(</span><span class="token string">'mouseenter'</span>, <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+            this.stop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            clearTimeout<span class="token punctuation">(</span>this.restartTimer<span class="token punctuation">)</span>
+            item.style.zIndex <span class="token operator">=</span> this.items.length * <span class="token number">10000</span> + <span class="token string">''</span>
+            item.style.transform <span class="token operator">=</span> item.style.transform.replace<span class="token punctuation">(</span>
+                /scale<span class="token variable"><span class="token punctuation">((</span>\d<span class="token operator">+</span>.<span class="token operator">?</span>\d<span class="token operator">*</span><span class="token punctuation">))</span></span>/,
+                <span class="token string">'scale(1)'</span>
+            <span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        item.addEventListener<span class="token punctuation">(</span><span class="token string">'mouseleave'</span>, <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+            item.style.zIndex <span class="token operator">=</span> item.animateInfo.z + <span class="token string">''</span>
+            item.style.transform <span class="token operator">=</span> item.style.transform.replace<span class="token punctuation">(</span>
+                /scale<span class="token variable"><span class="token punctuation">((</span>\d<span class="token operator">+</span>.<span class="token operator">?</span>\d<span class="token operator">*</span><span class="token punctuation">))</span></span>/,
+                <span class="token variable"><span class="token variable">`</span>scale<span class="token punctuation">(</span>$<span class="token punctuation">&#123;</span>item.animateInfo.scale<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token variable">`</span></span>
+            <span class="token punctuation">)</span>
+            this.restartTimer <span class="token operator">=</span> setTimeout<span class="token punctuation">((</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+                this.start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#125;</span>, <span class="token number">300</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+
+    render<span class="token punctuation">(</span>item: AnimateElement<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        const <span class="token punctuation">&#123;</span> x <span class="token operator">=</span> <span class="token number">10</span>, y <span class="token operator">=</span> <span class="token number">10</span>, z, scale <span class="token punctuation">&#125;</span> <span class="token operator">=</span> item.animateInfo
+        item.style.zIndex <span class="token operator">=</span> z + <span class="token string">''</span>
+        item.style.transform <span class="token operator">=</span> <span class="token variable"><span class="token variable">`</span>translate<span class="token punctuation">(</span>$<span class="token punctuation">&#123;</span>x<span class="token punctuation">&#125;</span>px, $<span class="token punctuation">&#123;</span>y<span class="token punctuation">&#125;</span>px<span class="token punctuation">)</span> scale<span class="token punctuation">(</span>$<span class="token punctuation">&#123;</span>scale<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token variable">`</span></span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token function-name function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        this.animationFrame <span class="token operator">&amp;&amp;</span> window.cancelAnimationFrame<span class="token punctuation">(</span>this.animationFrame<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token function-name function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        this.items.forEach<span class="token punctuation">((</span>item: AnimateElement<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+            this.setScale<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+            this.setPosition<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+            this.render<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        this.animationFrame <span class="token operator">=</span> window.requestAnimationFrame<span class="token punctuation">((</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+            this.start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token function-name function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        this.stop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        this.items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        this.container <span class="token operator">=</span> null
+        this.mutationObserver <span class="token operator">&amp;&amp;</span> this.mutationObserver.disconnect<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">function</span> <span class="token function-name function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    randomAnimate <span class="token operator">=</span> new RandomAnimate<span class="token punctuation">(</span>container.value<span class="token operator">!</span><span class="token punctuation">)</span>
+    const items <span class="token operator">=</span> Array.from<span class="token punctuation">(</span>container.value<span class="token operator">!</span>.children<span class="token punctuation">)</span> as AnimateElement<span class="token punctuation">[</span><span class="token punctuation">]</span>
+    randomAnimate.add<span class="token punctuation">(</span>items<span class="token punctuation">)</span>
+    randomAnimate.start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+onMounted<span class="token punctuation">((</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    init<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+onUnmounted<span class="token punctuation">((</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    randomAnimate.destroy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token operator">&lt;</span>/script<span class="token operator">></span>
+<span class="token operator">&lt;</span>template<span class="token operator">></span>
+    <span class="token operator">&lt;</span>div <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"word-cloud-container"</span> <span class="token assign-left variable">ref</span><span class="token operator">=</span><span class="token string">"container"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>slot<span class="token operator">></span><span class="token operator">&lt;</span>/slot<span class="token operator">></span>
+        <span class="token operator">&lt;</span>/div<span class="token operator">></span>
+<span class="token operator">&lt;</span>/template<span class="token operator">></span>
+<span class="token operator">&lt;</span>style <span class="token assign-left variable">lang</span><span class="token operator">=</span><span class="token string">"scss"</span> scoped<span class="token operator">></span>
+.word-cloud-container <span class="token punctuation">&#123;</span>
+    width: <span class="token number">100</span>%<span class="token punctuation">;</span>
+    height: <span class="token number">100</span>%<span class="token punctuation">;</span>
+    position: relative<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token operator">&lt;</span>/style<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>template<span class="token operator">></span>
+    <span class="token operator">&lt;</span>div <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"container"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>WordCloudRandom<span class="token operator">></span>
+            <span class="token operator">&lt;</span>div <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"card"</span> v-for<span class="token operator">=</span><span class="token string">"item in list"</span> :key<span class="token operator">=</span><span class="token string">"item"</span><span class="token operator">></span>
+                <span class="token operator">&lt;</span>div <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"content"</span><span class="token operator">></span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> item <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span>/div<span class="token operator">></span>
+            <span class="token operator">&lt;</span>/div<span class="token operator">></span>
+        <span class="token operator">&lt;</span>/WordCloudRandom<span class="token operator">></span>
+    <span class="token operator">&lt;</span>/div<span class="token operator">></span>
+<span class="token operator">&lt;</span>/template<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>script setup<span class="token operator">></span>
+<span class="token function">import</span> WordCloudRandom from <span class="token string">'../components/WordCloudRandom.vue'</span>
+<span class="token function">import</span> <span class="token punctuation">&#123;</span> ref <span class="token punctuation">&#125;</span> from <span class="token string">'vue'</span><span class="token punctuation">;</span>
+
+const list <span class="token operator">=</span> ref<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'好好吃饭'</span>, <span class="token string">'好好睡觉'</span>, <span class="token string">'好好玩'</span>, <span class="token string">'Vue'</span>, <span class="token string">'react'</span>, <span class="token string">'angular'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token operator">&lt;</span>/script<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>style <span class="token assign-left variable">lang</span><span class="token operator">=</span><span class="token string">"scss"</span> scoped<span class="token operator">></span>
+.word-cloud-random <span class="token punctuation">&#123;</span>
+    width: <span class="token number">100</span>%<span class="token punctuation">;</span>
+    height: <span class="token number">100</span>%<span class="token punctuation">;</span>
+    overflow: hidden<span class="token punctuation">;</span>
+    background-color: transparent<span class="token punctuation">;</span>
+    position: relative<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+.container <span class="token punctuation">&#123;</span>
+    width: 880px<span class="token punctuation">;</span>
+    height: 640px<span class="token punctuation">;</span>
+    background-color: <span class="token comment">#222832;</span>
+<span class="token punctuation">&#125;</span>
+.card <span class="token punctuation">&#123;</span>
+    width: 200px<span class="token punctuation">;</span>
+    height: auto<span class="token punctuation">;</span>
+    box-shadow: 0px 2px 4px 0px rgba<span class="token punctuation">(</span><span class="token number">0</span>, <span class="token number">78</span>, <span class="token number">106</span>, <span class="token number">0.8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    border-radius: 7px<span class="token punctuation">;</span>
+    border: 1px solid rgba<span class="token punctuation">(</span><span class="token number">255</span>, <span class="token number">255</span>, <span class="token number">255</span>, <span class="token number">0.2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cursor: pointer<span class="token punctuation">;</span>
+    background: transparent<span class="token punctuation">;</span>
+    text-align: center<span class="token punctuation">;</span>
+    padding: 6px<span class="token punctuation">;</span>
+    // transition: all <span class="token number">0</span>.3s<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>:hover <span class="token punctuation">&#123;</span>
+        border: 1px solid <span class="token comment">#2be5eb;</span>
+        background: <span class="token comment">#06436d;</span>
+        box-shadow: 0px 2px 5px 0px rgba<span class="token punctuation">(</span><span class="token number">0</span>, <span class="token number">78</span>, <span class="token number">106</span>, <span class="token number">0.8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+.content <span class="token punctuation">&#123;</span>
+    font-size: 22px<span class="token punctuation">;</span>
+    font-family: PingFangSC-Semibold, PingFang SC<span class="token punctuation">;</span>
+    font-weight: <span class="token number">600</span><span class="token punctuation">;</span>
+    color: <span class="token comment">#2be5eb;</span>
+    line-height: 48px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token operator">&lt;</span>/style<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
