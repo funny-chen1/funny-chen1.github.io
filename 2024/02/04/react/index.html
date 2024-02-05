@@ -4,8 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="样式动效, Funny">
-    <meta name="description" content="">
+    <meta name="keywords" content="react项目相关, Funny">
+    <meta name="description" content="以下是学习React的一些总结
+路由相关配置使用lazy和Suspense实现路由懒加载* router/index.js
+import &amp;#123; lazy &amp;#125; from &#39;react&#39;
+const routes = [
+  ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +21,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>样式动效 | Funny</title>
+    <title>react项目相关 | Funny</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -334,12 +338,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">样式动效</h1>
+                    <h1 class="description center-align post-title">react项目相关</h1>
                 </div>
             </div>
         </div>
@@ -363,8 +367,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/css/">
-                                <span class="chip bg-color">css</span>
+                            <a href="/tags/react/">
+                                <span class="chip bg-color">react</span>
                             </a>
                         
                     </div>
@@ -375,8 +379,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/css/" class="post-category">
-                                css
+                            <a href="/categories/react/" class="post-category">
+                                react
                             </a>
                         
                     </div>
@@ -388,7 +392,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-08-28
+                    2024-02-04
                 </div>
                 
 
@@ -412,7 +416,69 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p>以下是学习React的一些总结</p>
+<h2 id="路由相关配置"><a href="#路由相关配置" class="headerlink" title="路由相关配置"></a>路由相关配置</h2><h3 id="使用lazy和Suspense实现路由懒加载"><a href="#使用lazy和Suspense实现路由懒加载" class="headerlink" title="使用lazy和Suspense实现路由懒加载"></a>使用lazy和Suspense实现路由懒加载</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">* router/index.js
+<span class="token function">import</span> <span class="token punctuation">&#123;</span> lazy <span class="token punctuation">&#125;</span> from <span class="token string">'react'</span>
+const routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+        path: <span class="token string">'/'</span>,
+        name: <span class="token string">'首页'</span>,
+        isActive: true,
+        element: lazy<span class="token variable"><span class="token punctuation">((</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> import<span class="token punctuation">(</span>'..<span class="token operator">/</span>views<span class="token operator">/</span>HomeView'<span class="token punctuation">))</span></span>
+    <span class="token punctuation">&#125;</span>,
+    <span class="token punctuation">..</span>.
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token builtin class-name">export</span> default routes<span class="token punctuation">;</span>
+
+* App.jsx
+<span class="token function">import</span> routes from <span class="token string">'./router/index'</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function-name function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+  <span class="token builtin class-name">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;></span>
+          <span class="token operator">&lt;</span>Header<span class="token operator">></span><span class="token operator">&lt;</span>/Header<span class="token operator">></span>
+          <span class="token operator">&lt;</span>div<span class="token operator">></span>
+              <span class="token operator">&lt;</span>Suspense<span class="token operator">></span>
+                  <span class="token operator">&lt;</span>Routes<span class="token operator">></span>
+                      <span class="token punctuation">&#123;</span>
+                          routes.map<span class="token punctuation">(</span>route <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+                              <span class="token builtin class-name">return</span> <span class="token operator">&lt;</span>Route <span class="token assign-left variable">key</span><span class="token operator">=</span><span class="token punctuation">&#123;</span>route.path<span class="token punctuation">&#125;</span> <span class="token assign-left variable">path</span><span class="token operator">=</span><span class="token punctuation">&#123;</span>route.path<span class="token punctuation">&#125;</span> <span class="token assign-left variable">Component</span><span class="token operator">=</span><span class="token punctuation">&#123;</span>route.element<span class="token punctuation">&#125;</span>/<span class="token operator">></span>
+                          <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+                      <span class="token punctuation">&#125;</span>
+                  <span class="token operator">&lt;</span>/Routes<span class="token operator">></span>
+              <span class="token operator">&lt;</span>/Suspense<span class="token operator">></span>
+          <span class="token operator">&lt;</span>/div<span class="token operator">></span>
+
+      <span class="token operator">&lt;</span>/<span class="token operator">></span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token builtin class-name">export</span> default App<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="路由跳转"><a href="#路由跳转" class="headerlink" title="路由跳转"></a>路由跳转</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"> React Router v6 
+<span class="token function">import</span> <span class="token punctuation">&#123;</span> useNavigate <span class="token punctuation">&#125;</span> from <span class="token string">'react-router-dom'</span><span class="token punctuation">;</span>
+
+const navigate <span class="token operator">=</span> useNavigate<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+navigate<span class="token punctuation">(</span>路径, 参数<span class="token punctuation">&#123;</span>state: <span class="token string">''</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="获取路由参数"><a href="#获取路由参数" class="headerlink" title="获取路由参数"></a>获取路由参数</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
+const <span class="token punctuation">&#123;</span> <span class="token function">id</span> <span class="token punctuation">&#125;</span> <span class="token operator">=</span> useParams<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+useParams用于获取当前路由的参数。比如，如果路径为 /users/:id，那么 useParams 可以访问 <span class="token function">id</span> 参数的值。
+
+
+useLocation用于获取当前路由的位置信息，包括路径、搜索参数等。
+const location <span class="token operator">=</span> useLocation<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">import</span> <span class="token punctuation">&#123;</span> Redirect <span class="token punctuation">&#125;</span> from <span class="token string">'react-router-dom'</span><span class="token punctuation">;</span>
+<span class="token builtin class-name">return</span> <span class="token operator">&lt;</span>Redirect <span class="token assign-left variable">to</span><span class="token operator">=</span><span class="token string">"/login"</span> /<span class="token operator">></span><span class="token punctuation">;</span>
+Redirect 是 React Router 中的一个组件，用于在应用程序中执行重定向。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="相关hook"><a href="#相关hook" class="headerlink" title="相关hook"></a>相关hook</h2><p><a target="_blank" rel="noopener" href="https://react.docschina.org/reference/react/hooks">https://react.docschina.org/reference/react/hooks</a><br>用的比较多的是useState和useEffect</p>
+<p>useState允许你向组件添加一个状态变量，存储数据。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">const <span class="token punctuation">[</span>state, setState<span class="token punctuation">]</span> <span class="token operator">=</span> useState<span class="token punctuation">(</span>initialState<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>useEffect 允许将组件与外部系统同步,组件挂载运行。</p>
+
                 
             </div>
             <hr/>
@@ -438,7 +504,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2023/08/28/css/">http://example.com/2023/08/28/css/</a>
+                    <a href="http://example.com/2024/02/04/react/">http://example.com/2024/02/04/react/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -476,8 +542,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/css/">
-                                    <span class="chip bg-color">css</span>
+                                <a href="/tags/react/">
+                                    <span class="chip bg-color">react</span>
                                 </a>
                             
                         </div>
@@ -556,9 +622,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2024/02/04/react/">
                     <div class="card-image">
@@ -576,9 +643,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-02-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-02-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -591,6 +658,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -609,13 +677,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/06/14/mobile/">
+                <a href="/2023/08/28/css/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Vue移动端适配配置">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="样式动效">
                         
-                        <span class="card-title">Vue移动端适配配置</span>
+                        <span class="card-title">样式动效</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -626,14 +694,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" class="post-category">
-                                    移动端
+                            <a href="/categories/css/" class="post-category">
+                                    css
                                 </a>
                             
                             
@@ -643,12 +711,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue/">
-                        <span class="chip bg-color">Vue</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">
-                        <span class="chip bg-color">移动端</span>
+                    <a href="/tags/css/">
+                        <span class="chip bg-color">css</span>
                     </a>
                     
                 </div>
